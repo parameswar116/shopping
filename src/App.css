@@ -1,38 +1,251 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body{
+  background-color:aliceblue;
+}
+@media screen and (max-width:575px) {
+  .nav-header{
+    width: 100%;
+    max-width: 100vw;
+  }
+  .nav-header .submenu{
+    display: none;
+  }
+  .nav-header .navSection .search{
+    display: none;
+  }
+  .nav-header .navSection .user{
+    display: none;
+  }
+  .product-list{
+    width: 100%;
+    max-width: 100vw;
+  }
+  .product-list .prod-filter{
+    display: none;
+  }
+  .product-list .pagesection{
+    display: block;
+    margin-left: 50px;
+    padding-left: 0;
+  }
+  .detaile-section{
+    width: 100%;
+    max-width: 100vw;
+  }
+  .detaile-section .img-section{
+    width: 100%;
+  }
+  .cart-page{
+    width: 100%;
+    max-width: 100vw;
+  }
+}
+
+@media screen and (min-width:575px) and (max-width:1024px){
+  /* .prod-filter{
+    display: none;
+  } */
+ .product-list .pagesection{
+   display: grid;
+   grid-template-columns: repeat(2,250px);
+  }
+  .nav-header .submenu{
+    display: none;
+  }
+  .detaile-section{
+    width: 100%;
+    max-width: 100vw;
+  }
+  .detaile-section .img-section{
+    width: 100%;
+  }
+}
+.nav-header{
+  position: sticky;
+  top: 0;
+}
+.navSection{
+  display: flex;
+  width: 80%;
+  min-width: 100vw;
+  height: 80px;
+  background-color: #000;
+  color: #551a8b;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 50px;
+  font-weight: bold;
+  
+}
+.search input{
+  width: 100%;
+    height: 2rem;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: medium;
+}
+.pro-section{
+  display: flex;
+  background-color: white;
+}
+h3{
+  padding: 10px;
+}
+.imgBox{
+  width: 80%;
+  padding-left: 20px;
+
+}
+.pro-img{
+  width: 80%;
+  border-radius: 10px;
+}
+.submenu{
+  height: 50px;
+  background-color: orange;
+ 
+}
+.submenu ul {
+  display:flex;
+  justify-content: space-around;
+  
+
+}
+.submenu ul li{
+  list-style-type: none;
+  margin-top: 15px;
+}
+.pagesection{
+  display: grid;
+  grid-template-columns: repeat(4,240px);
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-left: 220px;
+}
+.pageimg{
+  width: 250px;
+  height: 250px;
+
+}
+.pageimg .img-only{
+  width: 90%;
+  height: 90%;
+}
+.pageimg img{
+  width: 90%;
+  height: 90%;
+
+ 
+}
+.img-caption{
+  width: 90%;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.detaile-section{
+  display: grid;
+grid-template-columns: repeat(2,40%);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.img-section{
+  margin:10px;
+  width: 480px;
+  height:500px;
+ 
 }
+.img-section img{
+  width: 100%;
+  height: 100%;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.data-section{
+  margin-left: 15px;
+  padding-top: 30px;
+}
+.prod-title{
+  font-weight:bold;
+  font-size:x-large;  
+  padding-bottom: 5px;
+}
+.prod-model{
+  font-weight: bold;
+  font-size: large;
+  padding-bottom: 5px;
+  padding-left: 7px;
+}.prod-price{
+  font-weight: bold;
+  font-size: x-large;
+  padding-bottom: 5px;
+  padding-left: 7px;
+}
+.prod-description{
+  font-weight: bold;
+  font-size: medium;
+  padding-bottom: 5px;
+  padding-left: 7px;
+}
+.btn-cart{
+  padding-left: 7px;
+  padding-top: 10px;
+}
+.btn-cart button{
+  padding: 5px;
+  color:black;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 5px;
+  
+}
+.btn-cart button:hover{
+  background-color:darkorange;
+  cursor: pointer;
+}
+a:-webkit-any-link{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large;
+}
+.product-list{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
+.prod-filter{
+  position: fixed;
+  width: 200px;
+top: 100;
+left: 0;
+  background-color: aliceblue;
+  border:2px solid black;
+  border-radius: 2px;
+  height: 500px;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.prod-input input{
+  margin: 10px 5px 0px 20px;
+ 
+}
+.cart-item-number{
+  color:red;
+  padding: 5px;
+}
+.cart-header{
+  display: flex;
+justify-content: center;
+  margin: 5px 0px;
+}
+.cart-image{
+  padding: 5px;
+}
+ .cart-image img{
+  width: 25px;
+  height: 20px;
+}
+.c-pointer{
+  cursor: pointer;
+  width: 47px;
 }

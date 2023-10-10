@@ -1,0 +1,52 @@
+
+.signup {
+    margin: 5px 390px;
+  border: 1px solid black;
+  border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    box-shadow: 1px 1px 1px 1px #000;
+    background-color:whitesmoke;
+  }
+.title{
+  padding: 10px;
+}
+ 
+  .userinput {
+    
+    padding: 10px;
+    margin: 5px 10px 5px 10px;
+  }
+  .userinput input{
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .btn{
+    margin: 10px;
+    
+    
+  }
+  .btn button{
+color:white;
+background-color:#00a400;
+width: 76%;
+height: 40px;
+border-radius: 5px;
+cursor: pointer;
+  }
+  .login p{
+    color:blueviolet;
+    font-weight: 400;
+  }
+  .login button{
+    border: none;
+    cursor: pointer;
+  }
+ 
+  
