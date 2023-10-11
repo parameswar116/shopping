@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import React, { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const authInitialstate = {
   user_accounts: [
@@ -28,7 +29,9 @@ const authSlice = createSlice({
       state.isLogin = false;
     },
     getData(state, action) {
-      console.log(action);
+      
+      // console.log(action.payload);
+      state.user_accounts.push(action.payload);
     },
   },
 });

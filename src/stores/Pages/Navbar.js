@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavLink,
   useLocation,
@@ -14,6 +14,8 @@ import { inputSearch } from "./Search";
 const Navbar = () => {
   const totalQuantity = useSelector((state) => state.cartslice.totalQuantity);
   const isLogin = useSelector((state) => state.authentication.isLogin);
+  const [userData, setUserData] = useState([]);
+
   console.log(isLogin);
 
   const location = useLocation();
@@ -34,10 +36,26 @@ const Navbar = () => {
   //     navigate("/");
   //   }
   // }, []);
+
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://65227fe0f43b17938414903d.mockapi.io/user"
+    );
+    const data = await response.json();
+    setUserData(data);
+  };
+
   const loginHandler = () => {
     localStorage.setItem("login", false);
+    fetchData();
     navigate("/login");
   };
+  // console.log(userData);
+
+  const sendData = (userData) => {
+    dispatch(authActions.getData(userData));
+  };
+  sendData(userData);
   const logoutHandler = () => {
     dispatch(authActions.logout());
   };

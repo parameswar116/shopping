@@ -21,6 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = useSelector((state) => state.authentication.user_accounts);
+  console.log(data);
   // const Logged = useSelector((state) => state.authentication.isLogin);
   const dispatch = useDispatch();
   const logged = localStorage.getItem("login");
@@ -30,6 +31,8 @@ const Login = () => {
       navigate("/");
     }
   }, []);
+
+  // useEffect for getting user-data from Api
 
   const createAccountHanlder = () => {
     setAccount(false);
