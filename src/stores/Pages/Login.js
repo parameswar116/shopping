@@ -21,7 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = useSelector((state) => state.authentication.user_accounts);
-  console.log(data);
+
   // const Logged = useSelector((state) => state.authentication.isLogin);
   const dispatch = useDispatch();
   const logged = localStorage.getItem("login");
@@ -53,6 +53,7 @@ const Login = () => {
       dispatch(authActions.login());
       showLogin = true;
       localStorage.setItem("login", showLogin);
+      console.log(input);
       navigate("/");
     } else {
       alert("Enter valid information");
@@ -83,7 +84,7 @@ const Login = () => {
           />
         </div>
         <div className={classes.btn}>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Login
           </button>
         </div>
@@ -95,7 +96,7 @@ const Login = () => {
       <div className={classes.create}>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           onClick={createAccountHanlder}
         >
           Create new account

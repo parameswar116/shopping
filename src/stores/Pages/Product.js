@@ -12,7 +12,7 @@ const Product = (data) => {
       <div className="pro-section">
         {fiveItems.map((item) => {
           return (
-            <div className="imgBox">
+            <div className="imgBox" key={item.id}>
               <img src={item.image} alt="" className="pro-img" />
             </div>
           );

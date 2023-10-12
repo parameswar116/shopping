@@ -10,7 +10,7 @@ const Furniture = () => {
       <div className="pro-section">
         {fiveImges.map((item) => {
           return (
-            <div className="imgBox">
+            <div className="imgBox" key={item.id}>
              
               <NavLink to={'furniture'}>
               <img src={item.image} alt="" className="pro-img" />

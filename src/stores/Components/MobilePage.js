@@ -42,7 +42,7 @@ const MobilePage = () => {
         <div className="pagesection">
           {filteredData.map((item) => {
             return (
-              <div className="pageimg">
+              <div className="pageimg" key={item.id}>
                 <NavLink to={item.id}>
                   <img src={item.image} alt="" />
                   <h4 className="img-caption">

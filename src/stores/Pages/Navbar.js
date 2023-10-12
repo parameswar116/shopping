@@ -10,65 +10,75 @@ import { useDispatch, useSelector } from "react-redux";
 import CartImage from "../Assets/CartIcon.png";
 import { authActions } from "../store/AuthSlice";
 import { inputSearch } from "./Search";
+// const areEqual = (prevProps, nextProps) => true;
 
-const Navbar = () => {
+const Navbar = React.memo((props) => {
   const totalQuantity = useSelector((state) => state.cartslice.totalQuantity);
-  const isLogin = useSelector((state) => state.authentication.isLogin);
-  const [userData, setUserData] = useState([]);
+  const authentication = useSelector((state) => state.authentication);
+  const isLogin = authentication.isLogin;
 
-  console.log(isLogin);
+  const user = authentication.user_accounts.map((user) => user);
+  console.log(user);
+
+  const [userData, setUserData] = useState([]);
+  const [disable, setDisable] = useState(false);
+
+  // console.log(isLogin);
 
   const location = useLocation();
   const login = localStorage.getItem("login");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // if (login && location.pathname === "/login") {
-  //   //console.log("reject");
-  //   console.log(`reject ===nav ${isLogin}`);
-
-  //   navigate("/");
-  // }
-  // useEffect(() => {
-  //   if (login && location.pathname === "/login") {
-  //     console.log(`reject ===logo ${isLogin}`);
-
-  //     navigate("/");
-  //   }
-  // }, []);
-
+  // let btn = document.getElementsByClassName("login-button")[0];
+  // console.log(div1);
   const fetchData = async () => {
     const response = await fetch(
       "https://65227fe0f43b17938414903d.mockapi.io/user"
     );
     const data = await response.json();
-    setUserData(data);
+
+    dispatch(authActions.getData(data));
   };
+  useEffect(() => {
+    setUserData(userData);
+
+    dispatch(fetchData);
+  }, [dispatch]);
 
   const loginHandler = () => {
     localStorage.setItem("login", false);
-    fetchData();
+    setDisable(true);
+    // btn.classList.add("disable");
+    // dispatch(fetchData);
+
     navigate("/login");
   };
-  // console.log(userData);
-
-  const sendData = (userData) => {
-    dispatch(authActions.getData(userData));
-  };
-  sendData(userData);
   const logoutHandler = () => {
     dispatch(authActions.logout());
   };
   const loginButton = (
-    <div className="user-detailes c-pointer" onClick={loginHandler}>
-      Log in
-    </div>
+    <button
+      className="login-button button"
+      onClick={loginHandler}
+      // disabled={disable}
+    >
+      {" "}
+      <h4>Hello, Log in</h4>
+    </button>
   );
   const logoutButton = (
-    <div className="user-detailes c-pointer" onClick={logoutHandler}>
-      Logout
-    </div>
+    <button className="button" onClick={logoutHandler}>
+      <h4>Hello,Parameswar Log out</h4>
+    </button>
   );
+  // const loginButton = (
+  //   <div className="user-detailes c-pointer login" onClick={loginHandler}></div>
+  // );
+  // const logoutButton = (
+  //   <div className="user-detailes c-pointer" onClick={logoutHandler}>
+  //     <h4>Hello, Parameswar Log out</h4>
+  //   </div>
+  // );
   let showLogin = !isLogin ? loginButton : logoutButton;
 
   return (
@@ -131,6 +141,6 @@ const Navbar = () => {
       </div>
     </>
   );
-};
+});
 
 export default Navbar;

@@ -66,6 +66,17 @@ body{
     width: 100%;
   }
 }
+.user{
+  width: 100px;
+  /* text-align: center; */
+
+}
+.user-detailes h5{
+  width: 100px;
+  color:white;
+  text-align: center;
+}
+
 .nav-header{
   position: sticky;
   top: 0;
@@ -246,6 +257,15 @@ justify-content: center;
   height: 20px;
 }
 .c-pointer{
-  cursor: pointer;
+  cursor:pointer;
   width: 47px;
+}
+.disable{
+  cursor: not-allowed;
+}
+.button{
+  background-color: #000;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
