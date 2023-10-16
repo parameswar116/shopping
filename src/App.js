@@ -5,9 +5,14 @@ import Main from "./stores/Pages/Routing/Main";
 import Users from "./stores/data/Users";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { authActions } from "./stores/store/AuthSlice";
+import { authActions, getData } from "./stores/store/AuthSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("hi");
+    dispatch(getData());
+  });
 
   return (
     <div>

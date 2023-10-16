@@ -14,9 +14,7 @@ const Cart = () => {
   return (
     <div className="cart-page">
       <div className="cart-header">
-        <div className="cart-image">
-          <img src={CartImage} />
-        </div>
+        <div className="cart-image">{/* <img src={CartImage} /> */}</div>
         <div className="cart-title">
           <h2>My Cart</h2>
         </div>

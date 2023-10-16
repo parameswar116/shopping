@@ -18,7 +18,7 @@ const Navbar = React.memo((props) => {
   const isLogin = authentication.isLogin;
 
   const user = authentication.user_accounts.map((user) => user);
-  console.log(user);
+  // console.log(user);
 
   const [userData, setUserData] = useState([]);
   const [disable, setDisable] = useState(false);
@@ -31,26 +31,22 @@ const Navbar = React.memo((props) => {
   const dispatch = useDispatch();
   // let btn = document.getElementsByClassName("login-button")[0];
   // console.log(div1);
-  const fetchData = async () => {
-    const response = await fetch(
-      "https://65227fe0f43b17938414903d.mockapi.io/user"
-    );
-    const data = await response.json();
+  // const fetchData = async () => {
+  //   const response = await fetch(
+  //     "https://65227fe0f43b17938414903d.mockapi.io/user"
+  //   );
+  //   const data = await response.json();
+  //   dispatch(authActions.loadData(data));
+  // };
+  // useEffect(() => {
+  //   setUserData(userData);
 
-    dispatch(authActions.getData(data));
-  };
-  useEffect(() => {
-    setUserData(userData);
-
-    dispatch(fetchData);
-  }, [dispatch]);
+  //   dispatch(fetchData);
+  // }, []);
 
   const loginHandler = () => {
     localStorage.setItem("login", false);
     setDisable(true);
-    // btn.classList.add("disable");
-    // dispatch(fetchData);
-
     navigate("/login");
   };
   const logoutHandler = () => {
@@ -71,14 +67,7 @@ const Navbar = React.memo((props) => {
       <h4>Hello,Parameswar Log out</h4>
     </button>
   );
-  // const loginButton = (
-  //   <div className="user-detailes c-pointer login" onClick={loginHandler}></div>
-  // );
-  // const logoutButton = (
-  //   <div className="user-detailes c-pointer" onClick={logoutHandler}>
-  //     <h4>Hello, Parameswar Log out</h4>
-  //   </div>
-  // );
+
   let showLogin = !isLogin ? loginButton : logoutButton;
 
   return (
