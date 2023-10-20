@@ -19,24 +19,24 @@ export const getData = createAsyncThunk("userData/getUserData", async () => {
     console.log("error");
   }
 });
-export const postData = createAsyncThunk("postUserData", async (userData) => {
-  try {
-    const response = await fetch(
-      "https://65227fe0f43b17938414903d.mockapi.io/user",
-      {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: { contentType: "application/json" },
-      }
-    );
-    if (!response.ok) {
-      throw new Error();
-    }
-    const data = await response.json();
-  } catch (error) {
-    console.log(error.message());
-  }
-});
+// export const postData = createAsyncThunk("postUserData", async (userData) => {
+//   try {
+//     const response = await fetch(
+//       "https://65227fe0f43b17938414903d.mockapi.io/user",
+//       {
+//         method: "POST",
+//         body: JSON.stringify(userData),
+//         headers: { contentType: "application/json" },
+//       }
+//     );
+//     if (!response.ok) {
+//       throw new Error();
+//     }
+//     const data = await response.json();
+//   } catch (error) {
+//     console.log(error.message());
+//   }
+// });
 const authSlice = createSlice({
   name: "authentication",
   initialState: authInitialstate,
