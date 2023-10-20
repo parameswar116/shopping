@@ -17,10 +17,24 @@
   
   .details {
     display: flex;
-    justify-content: space-between;
+   
+    
     align-items: center;
+    height: 150px;
   }
-  
+  .item_image{
+    width: 397px;
+    height: 100px;
+    text-align: center;
+
+  }
+  .item_image img{
+    height: 100px;
+  }
+  .quantity{
+    margin-left: 0.5rem;
+    padding: 0.15rem 1rem;
+  }
   .quantity span {
     font-size: 1.5rem;
     font-weight: bold;
@@ -29,18 +43,29 @@
   .price {
     font-size: 1.5rem;
     font-weight: bold;
+    color: black;
+    width: 397px;
+    text-align: center;
   }
   
   .itemprice {
-    font-weight: normal;
+    font-weight: bolder;
     font-size: 1rem;
     font-style: italic;
+    color: black;
   }
-  
+  .item_model{
+    font-weight:bold;
+    font-size: 1rem;
+    font-style: italic;
+    color: black;
+  }
   .actions {
     display: flex;
-    justify-content: flex-end;
     margin: 0.5rem 0;
+    width: 397px;
+    justify-content: center;
+
   }
   
   .actions button {
@@ -48,7 +73,12 @@
     border: 1px solid white;
     margin-left: 0.5rem;
     padding: 0.15rem 1rem;
-    color: white;
+    color: black;
+    font-size: 1.5rem;
+    background-color: #4b4b4b;
+    width: 45px;
+    text-align: center;
+    border-radius: 20px;
   }
   
   .actions button:hover,
@@ -56,8 +86,10 @@
     background-color: #4b4b4b;
     color: white;
   }
+
   .CartItem li{
     list-style: none;
+    height: 200px;
     
   }
  

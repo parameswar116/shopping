@@ -4,10 +4,12 @@ import { Button } from "@mui/material";
 import { NavLink, redirect } from "react-router-dom";
 import { red } from "@mui/material/colors";
 import { authActions } from "../store/AuthSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Signup = (props) => {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.authentication.user_accounts);
+  console.log(userData);
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -32,6 +34,7 @@ const Signup = (props) => {
       isValid(!valid);
     }
     dispatch(authActions.Signin(data));
+    
   };
 
   const SignUp = (

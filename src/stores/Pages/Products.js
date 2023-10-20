@@ -10,7 +10,7 @@ import KitchenTools from "./KitchenTools";
 
 const Products = () => {
   return (
-    <div>
+    <div className="main-page">
       <Mobiles />
       <Computers />
       <Watches />

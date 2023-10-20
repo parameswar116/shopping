@@ -10,7 +10,6 @@ import { authActions, getData } from "./stores/store/AuthSlice";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("hi");
     dispatch(getData());
   });
 

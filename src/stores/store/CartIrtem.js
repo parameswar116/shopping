@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { cartSliceActions } from "./CartSlice";
 
 const CartIrtem = (props) => {
-  const { product, price, id, image, quantity } = props;
+  const { product, price, id, image, quantity, model } = props;
 
   console.log(quantity);
   const dispatch = useDispatch();
@@ -18,18 +18,23 @@ const CartIrtem = (props) => {
       <li className={classes.item}>
         <header>
           <h3>{product}</h3>
-          <div className={classes.price}>
-            <span className={classes.itemprice}>{price}</span>
-          </div>
         </header>
         <div className={classes.details}>
-          <img src={image} />
-          <div className={classes.quantity}>
-            <span>{quantity}</span>
+          <div className={classes.item_image}>
+            <img src={image} />
           </div>
+
           <div className={classes.actions}>
             <button onClick={removeItemFromCart}>-</button>
+            <div className={classes.quantity}>
+              <span>{quantity}</span>
+            </div>
             <button onClick={addItemToCart}>+</button>
+          </div>
+          <div className={classes.price}>
+            <p className={classes.item_model}>{model}</p>
+
+            <span className={classes.itemprice}>{price}</span>
           </div>
         </div>
       </li>

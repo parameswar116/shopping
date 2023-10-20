@@ -32,8 +32,6 @@ const Login = () => {
     }
   }, []);
 
-  // useEffect for getting user-data from Api
-
   const createAccountHanlder = () => {
     setAccount(false);
   };
@@ -44,13 +42,20 @@ const Login = () => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
   let showLogin = false;
+  console.log(data);
   const submitHandler = (event) => {
+    console.log(input);
     event.preventDefault();
-    let user = input && data.find((person) => person.email === input.username);
 
-    if (user.email === input.username && user.password === input.password) {
+    let user = input && data.find((person) => person.email === input.username);
+    console.log(user);
+    if (
+      user &&
+      user.email === input.username &&
+      user.password === input.password
+    ) {
       setIsLogin(!isLogin);
-      dispatch(authActions.login());
+      dispatch(authActions.login(user));
       showLogin = true;
       localStorage.setItem("login", showLogin);
       console.log(input);
@@ -107,7 +112,11 @@ const Login = () => {
 
   let show = account ? login : <Signup loginHandler={loginHandler} />;
 
-  return <>{show}</>;
+  return (
+    <>
+      <div className={classes.login}>{show}</div>
+    </>
+  );
 };
 
 export default Login;

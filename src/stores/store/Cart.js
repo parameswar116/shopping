@@ -6,7 +6,7 @@ import CartImage from "../Assets/CartImage.png";
 
 const Cart = () => {
   const data = useSelector((state) => state.cartslice.items);
-
+  console.log(data);
   const dispatch = useDispatch();
   const removeHandler = () => {
     dispatch(cartSliceActions.removeItemFromCart(data));
